@@ -1,3 +1,3 @@
-sudo mkfs -t ext4 /dev/sdc
+mkfs -t ext4 /dev/sdc -y
 mkdir datadisk
-sudo mount /dev/sdc/ datadisk
+mount /dev/sdc/ datadisk
