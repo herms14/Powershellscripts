@@ -1,3 +1,1 @@
-$offlineDisks = Get-disk | where OperationalStatus -eq "Offline"
-$offlineDisks | Initialize-Disk -PartitionStyle MBR -PassThru 
-$offlineDisks | New-Partition -UseMaximumSize -AssignDriveLetter -ErrorAction SilentlyContinue | Format-Volume -FileSystem NTFS -Confirm:$false -ErrorAction SilentlyContinue
+Get-Disk | Where partitionstyle -eq 'raw' | Initialize-Disk -PartitionStyle MBR -PassThru | New-Partition -UseMaximumSize -DriveLetter F | Format-Volume -FileSystem NTFS -NewFileSystemLabel "data" -Confirm:$false"
