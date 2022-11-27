@@ -1,3 +1,1 @@
-Get-Disk | where PartitionStyle -eq 'raw' | Initialize-Disk -PartitionStyle MBR
-New-Partition -DiskNumber 2 -Size 262141MB -AssignDriveLetter
-Format-Volume -DriveLetter F -FileSystem NTFS -NewFileSystemLabel "Data Disk"
+Get-Disk | Where partitionstyle -eq 'raw' | Initialize-Disk -PartitionStyle MBR -PassThru | New-Partition -UseMaximumSize -AssignDriveLetter| Format-Volume -FileSystem NTFS -NewFileSystemLabel "data" -Confirm:$false
